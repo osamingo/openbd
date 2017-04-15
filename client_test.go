@@ -35,7 +35,7 @@ func TestClient_Get(t *testing.T) {
 		t.Fatal(err)
 	}
 	m, err := cli.Get("123")
-	if err != nil{
+	if err != nil {
 		t.Fatal(err)
 	}
 	if bi, ok := m["123"]; ok {
@@ -52,6 +52,10 @@ func TestClient_Get(t *testing.T) {
 	if !ok {
 		t.Fatalf("not found - isbn = %s", isbn)
 	}
+	checkBookInformer(t, bi)
+}
+
+func checkBookInformer(t *testing.T, bi BookInformer) {
 	if bi.ISBN() != isbn {
 		t.Errorf("got %s, want %s", bi.ISBN(), isbn)
 	}

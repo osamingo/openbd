@@ -33,7 +33,7 @@ func NewClientV1(host string, cli *http.Client) (Fetcher, error) {
 // Get book information by isbn.
 func (c *Client) Get(isbn ...string) (map[string]BookInformer, error) {
 	if len(isbn) > 1e3 {
-		return nil, fmt.Errorf("opendb: args length should be under 1,000 - length = %d", isbn)
+		return nil, fmt.Errorf("opendb: args length should be under 1,000 - length = %d", len(isbn))
 	}
 	resp, err := c.HTTPClient.Get(c.URL.String() + "/get?isbn=" + strings.Join(isbn, ","))
 	if err != nil {
