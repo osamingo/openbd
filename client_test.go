@@ -53,6 +53,12 @@ func TestClient_Get(t *testing.T) {
 		t.Fatalf("not found - isbn = %s", isbn)
 	}
 	checkBookInformer(t, bi)
+
+	// Parse check
+	_, err = cli.Get("9784592187356")
+	if err != nil {
+		t.Fatal(err)
+	}
 }
 
 func checkBookInformer(t *testing.T, bi BookInformer) {

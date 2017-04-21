@@ -19,7 +19,10 @@ type (
 	Collection struct {
 		CollectionSequence *CollectionSequence `json:"CollectionSequence,omitempty"`
 		Collection         string              `json:"Collection,omitempty"`
-		TitleDetail        *TitleDetail        `json:"TitleDetail,omitempty"`
+		TitleDetail        struct {
+			TitleElement []*TitleElement `json:"TitleElement,omitempty"`
+			Title        string          `json:"Title,omitempty"`
+		} `json:"TitleDetail,omitempty"`
 	}
 
 	CollectionSequence struct {
