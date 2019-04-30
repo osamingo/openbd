@@ -2,12 +2,11 @@ sudo: false
 
 language: go
 go:
-  - 1.9.x
-  - 1.10.x
-  - tip
+  - 1.11.x
+  - 1.12.x
 
 script:
-  - go test -race -coverprofile=coverage.txt -covermode=atomic .
+  - go test -race -covermode=atomic -coverprofile=coverage.txt
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
